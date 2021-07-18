@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django test page</title>
-</head>
-<body>
-<h1>hello peyman</h1>
-<hr>
-<p>welcome to meybod university</p>
-<p>university : {{ uni }}</p>
-<p>Dept : {{ dept }}</p>
-</body>
-</html>
+{% extends 'homebase.html' %}
+
+
+{% block title %} My home page title {% endblock %}
+{% block description %} my home page descriptions {% endblock %}
+{% block keywords %} my home keywords {% endblock %}
+
+
+{% block slider %} {% include 'slider.html' %} {% endblock %}
+{% block body %} {% include 'content.html' %}  {% endblock %}

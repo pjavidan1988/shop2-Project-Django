@@ -1,22 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه اینترنتی کالا مارکت</title>
+    <title>{% block title %} خانه {% endblock %}</title>
+    <meta name="keywords" content="{% block keywords %} Home Keywords {% endblock %}">
+    <meta name="description" content="{% block description %} Home description  {% endblock %}">
     <!-- font---------------------------------------->
-    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/materialdesignicons.css">
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css'%}">
     <!-- plugin-------------------------------------->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/nice-select.css">
-    <link rel="stylesheet" href="assets/css/vendor/jquery.jqZoom.css">
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jquery.jqZoom.css'%}">
     <!-- main-style---------------------------------->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+
+    {% block head %} {% endblock %}
 </head>
 <body>
+
+{% include 'header.html' %}
+{% block slider %} {% endblock %}
+{% block body %} {% endblock %}
+{% include 'footer.html' %}
+{% block foot %} {% endblock %}
 
 </body>
 </html>
