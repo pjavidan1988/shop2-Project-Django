@@ -3,6 +3,8 @@ from django.db import models
 
 
 # Create your models here.
+from django.forms import TextInput, Textarea, ModelForm
+
 
 class Setting(models.Model):
     STATUS = (
@@ -29,6 +31,21 @@ class Setting(models.Model):
     youtube = models.CharField(blank=True, max_length=50)
     whatsapp = models.CharField(blank=True, max_length=50)
     telegram = models.CharField(blank=True, max_length=50)
+    shopping_features_img_1 = models.FileField(blank=True, upload_to='images/')
+    shopping_features_title_1 = models.CharField(max_length=150)
+    shopping_features_description_1 = models.CharField(max_length=150)
+    shopping_features_img_2 = models.FileField(blank=True, upload_to='images/')
+    shopping_features_title_2 = models.CharField(max_length=150)
+    shopping_features_description_2 = models.CharField(max_length=150)
+    shopping_features_img_3 = models.FileField(blank=True, upload_to='images/')
+    shopping_features_title_3 = models.CharField(max_length=150)
+    shopping_features_description_3 = models.CharField(max_length=150)
+    shopping_features_img_4 = models.FileField(blank=True, upload_to='images/')
+    shopping_features_title_4 = models.CharField(max_length=150)
+    shopping_features_description_4 = models.CharField(max_length=150)
+    shopping_features_img_5 = models.FileField(blank=True, upload_to='images/')
+    shopping_features_title_5 = models.CharField(max_length=150)
+    shopping_features_description_5 = models.CharField(max_length=150)
     aboutus = RichTextUploadingField(blank=True)
     contact = RichTextUploadingField(blank=True)
     references = RichTextUploadingField(blank=True)
@@ -38,3 +55,46 @@ class Setting(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class brandImages(models.Model):
+    setting = models.ForeignKey(Setting, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(blank=True, upload_to='images/')
+
+    def __str__(self):
+        return self.title
+
+
+class ContactMessage(models.Model):
+    STATUS = (
+        ('New', 'New'),
+        ('Read', 'Read'),
+        ('Closed', 'Closed'),
+    )
+    name = models.CharField(blank=True, max_length=255)
+    email = models.CharField(blank=True, max_length=255)
+    phone = models.CharField(blank=True, max_length=11)
+    subject = models.CharField(blank=True, max_length=255)
+    message = models.TextField(blank=True, max_length=255)
+    status = models.CharField(max_length=10, choices=STATUS, default='New')
+    ip = models.CharField(blank=True, max_length=20)
+    note = models.CharField(blank=True, max_length=255)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'subject', 'phone', 'message']
+        widgets = {
+            'name': TextInput(attrs={'class': 'input', 'placeholder': 'نام شما'}),
+            'subject': TextInput(attrs={'class': 'input', 'placeholder': 'موضوع'}),
+            'phone': TextInput(attrs={'class': 'input', 'placeholder': 'شماره تلفن'}),
+            'email': TextInput(attrs={'class': 'input', 'placeholder': 'ایمیل شما'}),
+            'message': Textarea(attrs={'class': 'input', 'placeholder': 'پیام خود را بنویسید', 'rows': '5'}),
+        }

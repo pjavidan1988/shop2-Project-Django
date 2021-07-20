@@ -1,6 +1,33 @@
 {% load static %}
 <!-- header-------------------------------->
 <header class="header-main">
+    <div class="text-left" dir="ltr">
+        <nav class="top-bar-menu py-0">
+            <div class="container-main">
+                <div class="col-12">
+                    <div class="top-bar-right">
+                        <ul class="top-menu-ul d-block">
+                            <li class="top-menu-item menu-item-type ml-0">
+                                <a href="#" class="top-menu-icon-link">
+                                    <i class="fa fa-whatsapp"></i>
+                                </a>
+                            </li>
+                            <li class="top-menu-item menu-item-type ml-0">
+                                <a href="#" class="top-menu-icon-link">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="top-menu-item menu-item-type ml-0">
+                                <a href="#" class="top-menu-icon-link">
+                                    <i class="fa fa-paper-plane"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="container-main">
         <div class="d-block">
             <section class="h-main-row">
@@ -8,8 +35,8 @@
                     <div class="header-right">
                         <div class="col-lg-3 pr">
                             <div class="header-logo row text-right">
-                                <a href="#">
-                                    <img src="{% static ''%}images/logo.png" alt="دیجی اسمارت">
+                                <a href="/">
+                                    <img src="{% static '' %}images/logo.png" alt="درسان مگنت">
                                 </a>
                             </div>
                         </div>
@@ -21,7 +48,7 @@
                                                placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
                                         <div class="action-btns">
                                             <button class="btn btn-search" type="submit">
-                                                <img src="{% static ''%}images/search.png" alt="search">
+                                                <img src="{% static '' %}images/search.png" alt="search">
                                             </button>
                                             <div class="search-filter">
                                                 <div class="form-ui">
@@ -106,7 +133,7 @@
                                 <div class="account-box">
                                     <div class="nav-account d-block pl">
                                             <span class="icon-account">
-                                                <img src="{% static ''%}images/man.png" class="avator">
+                                                <img src="{% static '' %}images/man.png" class="avator">
                                             </span>
                                         <span class="title-account">حساب کاربری</span>
                                         <div class="dropdown-menu">
@@ -138,6 +165,11 @@
                     <div class="d-block">
                         <div class="align-items-center">
                             <ul class="menu-ul mega-menu-level-one">
+                                <li id="nav-menu-item" class="menu-item">
+                                    <a href="/" class="current-link-menu">
+                                       خانه
+                                    </a>
+                                </li>
                                 <li id="nav-menu-item" class="menu-item nav-overlay">
                                     <a href="#" class="current-link-menu">
                                         کالای دیجیتال
@@ -307,7 +339,7 @@
                                             </ul>
                                         </li>
                                         <div class="bg-image">
-                                            <img src="{% static ''%}images/menu-main/digital.png" alt="">
+                                            <img src="{% static '' %}images/menu-main/digital.png" alt="">
                                         </div>
                                     </ul>
                                 </li>
@@ -485,7 +517,7 @@
                                             </ul>
                                         </li>
                                         <div class="bg-image">
-                                            <img src="{% static ''%}images/menu-main/cosmetic.png" alt="">
+                                            <img src="{% static '' %}images/menu-main/cosmetic.png" alt="">
                                         </div>
                                     </ul>
                                 </li>
@@ -673,7 +705,7 @@
                                             </ul>
                                         </li>
                                         <div class="bg-image">
-                                            <img src="{% static ''%}images/menu-main/kitchen.png" alt="">
+                                            <img src="{% static '' %}images/menu-main/kitchen.png" alt="">
                                         </div>
                                     </ul>
                                 </li>
@@ -747,6 +779,16 @@
                                         کودک و نوزاد
                                     </a>
                                 </li>
+                                <li id="nav-menu-item" class="menu-item">
+                                    <a href="/about" class="current-link-menu">
+                                        درباره ما
+                                    </a>
+                                </li>
+                                <li id="nav-menu-item" class="menu-item">
+                                    <a href="/contact" class="current-link-menu">
+                                        تماس با ما
+                                    </a>
+                                </li>
                                 <div class="divider-space-card d-block">
                                     <div class="header-cart-basket">
                                         <a href="#" class="cart-basket-box">
@@ -773,7 +815,7 @@
                                                                         <a href="#"
                                                                            class="mini-cart-item-image d-block">
                                                                             <img
-                                                                                    src="{% static ''%}images/menu-main/img-card.jpg">
+                                                                                    src="{% static '' %}images/menu-main/img-card.jpg">
                                                                         </a>
                                                                         <span class="product-name-card">لپ تاپ چووی
                                                                                 الترابوک 14
@@ -803,7 +845,7 @@
                                                                         <a href="#"
                                                                            class="mini-cart-item-image d-block">
                                                                             <img
-                                                                                    src="{% static ''%}images/menu-main/img-card-2.jpg">
+                                                                                    src="{% static '' %}images/menu-main/img-card-2.jpg">
                                                                         </a>
                                                                         <span class="product-name-card">هواوای میت
                                                                                 بوک X پرو
@@ -853,11 +895,12 @@
                 <div class="nav-header">
                     <div class="header-cover"></div>
                     <div class="logo-wrap">
-                        <a class="logo-icon" href="#"><img alt="logo-icon" src="{% static ''%}images/logo.png"
+                        <a class="logo-icon" href="#"><img alt="logo-icon" src="{% static '' %}images/logo.png"
                                                            width="40"></a>
                     </div>
                 </div>
                 <ul class="nav-categories ul-base">
+                    <li><a href="/">خانه</a></li>
                     <li><a href="#" class="collapsed" type="button" data-toggle="collapse"
                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i
                             class="mdi mdi-chevron-down"></i>کالای دیجیتال</a>
@@ -967,9 +1010,11 @@
                     </li>
                     <li><a href="#">لوازم تحریر و هنر</a></li>
                     <li><a href="#">کودک و نوزاد</a></li>
+                    <li><a href="/about">درباره ما</a></li>
+                    <li><a href="/contact">تماس با ما</a></li>
                 </ul>
             </nav>
-            <div class="nav-btn nav-slider">
+            <div class="nav-btn nav-slider nav-btn-home-3">
                 <span class="linee1"></span>
                 <span class="linee2"></span>
                 <span class="linee3"></span>

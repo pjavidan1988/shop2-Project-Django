@@ -1,0 +1,59 @@
+{% extends 'homebase.html' %}
+
+{% block title %}  {{ setting.title }}  | درباره ما {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+
+
+{% block body %}
+
+
+
+    <!-- product-comment----------------------->
+    <div class="container-main">
+        <div class="col-12">
+            <div class="page-content page-row">
+                <div class="main-row">
+                    <div id="breadcrumb">
+                        <i class="mdi mdi-home"></i>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">درباره ما</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <form action="#" id="addCommentForm">
+                    <section class="product-comment">
+                        <div class="comments-product">
+                            <div class="comments-product-row">
+                                <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
+                                    <div class="comments-product-col-info">
+                                        <div class="comments-product-headline">
+                                            <h3 class="comments-product-title" style="margin-bottom: 35px; text-align: center;">
+                                                درباره ما
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments-add">
+                                    <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
+                                        <div class="comments-add-col-content">
+                                            <div>
+                                                <p>{{ setting.aboutus|safe }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- product-comment----------------------->
+
+
+{% endblock %}

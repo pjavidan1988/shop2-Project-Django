@@ -1,0 +1,82 @@
+{% extends 'homebase.html' %}
+
+{% block title %}  {{ setting.title }}  | تماس با ما {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+
+{% block body %}
+
+
+
+    <!-- product-comment----------------------->
+    <div class="container-main">
+        <div class="col-12">
+            <div class="page-content page-row">
+                <div class="main-row">
+                    <div id="breadcrumb">
+                        <i class="mdi mdi-home"></i>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">تماس با ما</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <form action="#" id="addCommentForm">
+                    <section class="product-comment">
+                        <div class="comments-product">
+                            <div class="comments-product-row">
+                                <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
+                                    <div class="comments-product-col-info">
+                                        <div class="comments-product-headline">
+                                            <h3 class="comments-product-title" style="margin-bottom: 35px; text-align: center;">
+                                                تماس با ما
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments-add">
+                                    <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
+                                        <div class="comments-add-col-content">
+                                            <h3>دیگران را با نوشتن نظرات خود، برای انتخاب این محصول راهنمایی کنید.
+                                            </h3>
+                                            <div>
+                                                <p>لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:</p>
+                                                <p>فارسی بنویسید و از کیبورد فارسی استفاده کنید. بهتر است از فضای
+                                                    خالی (Space)
+                                                    بیش‌از‌حدِ معمول، شکلک یا ایموجی استفاده نکنید و از کشیدن حروف
+                                                    یا کلمات با
+                                                    صفحه‌کلید بپرهیزید.</p>
+                                                <p>به کاربران و سایر اشخاص احترام بگذارید. پیام‌هایی که شامل محتوای
+                                                    توهین‌آمیز و
+                                                    کلمات نامناسب باشند، حذف می‌شوند.</p>
+                                                <p>هرگونه نقد و نظر در خصوص سایت دیجی‌کالا، خدمات و درخواست کالا را
+                                                    با ایمیل
+                                                    <a href="mailto:info@kalamarket.com">
+                                                        info@kalamarket.com
+                                                    </a>
+                                                    یا با شماره‌ی
+
+                                                    <a href="tel: +982161930000">
+                                                        ۶۱۹۳۰۰۰۰ - ۰۲۱
+                                                    </a>
+                                                    در میان بگذارید و از نوشتن آن‌ها در بخش نظرات خودداری کنید.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- product-comment----------------------->
+
+
+{% endblock %}
