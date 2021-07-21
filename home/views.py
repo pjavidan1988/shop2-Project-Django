@@ -15,9 +15,10 @@ from django.urls import reverse
 from django.utils import translation
 
 
-from home.models import Setting, ContactForm, ContactMessage
+# from home.models import Setting, ContactForm, ContactMessage
 
 # Create your views here.
+from home.models import Setting, ContactForm, ContactMessage
 from product.models import Category, Product
 
 
@@ -55,4 +56,27 @@ def contactus(request):
     category = Category.objects.all()
     form = ContactForm
     context = {'setting': setting, 'form': form, 'category': category, }
-    return render(request, 'contact.html', context)
+    return render(request, 'contactus.html', context)
+
+# def contactus(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             # send and save data
+#             data = ContactMessage()
+#             data.name = form.cleaned_data['name']
+#             data.email = form.cleaned_data['email']
+#             data.phone = form.cleaned_data['phone']
+#             data.subject = form.cleaned_data['subject']
+#             data.message = form.cleaned_data['message']
+#             data.ip = request.META.get('REMOTE_ADDR')
+#             data.save()
+#             # send and save data
+#             messages.success(request, "پیام شما با موفقیت ارسال شد")
+#             return HttpResponseRedirect('/contactus')
+#
+#     setting = Setting.objects.get(pk=1)
+#     category = Category.objects.all()
+#     form = ContactForm
+#     context = {'setting': setting, 'form': form, 'category': category, }
+#     return render(request, 'contact.html', context)

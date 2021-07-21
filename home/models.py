@@ -1,7 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
-
 # Create your models here.
 from django.forms import TextInput, Textarea, ModelForm
 
@@ -68,20 +67,20 @@ class brandImages(models.Model):
 
 class ContactMessage(models.Model):
     STATUS = (
-        ('New', 'New'),
-        ('Read', 'Read'),
-        ('Closed', 'Closed'),
+        ('جدید', 'جدید'),
+        ('خوانده شده', 'خوانده شده'),
+        ('بستن', 'بستن'),
     )
-    name = models.CharField(blank=True, max_length=255)
-    email = models.CharField(blank=True, max_length=255)
-    phone = models.CharField(blank=True, max_length=11)
-    subject = models.CharField(blank=True, max_length=255)
-    message = models.TextField(blank=True, max_length=255)
-    status = models.CharField(max_length=10, choices=STATUS, default='New')
-    ip = models.CharField(blank=True, max_length=20)
-    note = models.CharField(blank=True, max_length=255)
+    name = models.CharField(blank=True, max_length=255, verbose_name='نام')
+    email = models.CharField(blank=True, max_length=255, verbose_name='ایمیل')
+    phone = models.CharField(blank=True, max_length=11, verbose_name='شماره تلفن')
+    subject = models.CharField(blank=True, max_length=255, verbose_name='موضوع')
+    message = models.TextField(blank=True, max_length=255, verbose_name='پیام')
+    status = models.CharField(max_length=10, choices=STATUS, default='جدید', verbose_name='وضعیت')
+    ip = models.CharField(blank=True, max_length=20, verbose_name='ای پی')
+    note = models.CharField(blank=True, max_length=255, verbose_name='یادداشت')
     create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    update_at = models.DateTimeField(auto_now=True, verbose_name='به روز شده در')
 
     def __str__(self):
         return self.name
@@ -92,9 +91,9 @@ class ContactForm(ModelForm):
         model = ContactMessage
         fields = ['name', 'email', 'subject', 'phone', 'message']
         widgets = {
-            'name': TextInput(attrs={'class': 'input', 'placeholder': 'نام شما'}),
-            'subject': TextInput(attrs={'class': 'input', 'placeholder': 'موضوع'}),
-            'phone': TextInput(attrs={'class': 'input', 'placeholder': 'شماره تلفن'}),
-            'email': TextInput(attrs={'class': 'input', 'placeholder': 'ایمیل شما'}),
-            'message': Textarea(attrs={'class': 'input', 'placeholder': 'پیام خود را بنویسید', 'rows': '5'}),
+            'name': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'نام شما'}),
+            'subject': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'موضوع'}),
+            'phone': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'شماره تلفن'}),
+            'email': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'ایمیل شما'}),
+            'message': Textarea(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'پیام خود را بنویسید', 'rows': '4'}),
         }

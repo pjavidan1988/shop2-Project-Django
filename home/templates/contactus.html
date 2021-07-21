@@ -32,49 +32,48 @@
                                 <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
                                     <div class="comments-product-col-info">
                                         <div class="comments-product-headline">
-                                            <h3 class="comments-product-title" style="margin-bottom: 35px; text-align: center;">
+                                            <h3 class="comments-product-title"
+                                                style="margin-bottom: 35px; text-align: center;">
                                                 تماس با ما
                                             </h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="comments-add">
-                                    <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
-                                        <div class="comments-add-col-content">
-                                            <h3>دیگران را با نوشتن نظرات خود، برای انتخاب این محصول راهنمایی کنید.
-                                            </h3>
-                                            <div>
-                                                <p>لطفا پیش از ارسال نظر، خلاصه قوانین زیر را مطالعه کنید:</p>
-                                                <p>فارسی بنویسید و از کیبورد فارسی استفاده کنید. بهتر است از فضای
-                                                    خالی (Space)
-                                                    بیش‌از‌حدِ معمول، شکلک یا ایموجی استفاده نکنید و از کشیدن حروف
-                                                    یا کلمات با
-                                                    صفحه‌کلید بپرهیزید.</p>
-                                                <p>به کاربران و سایر اشخاص احترام بگذارید. پیام‌هایی که شامل محتوای
-                                                    توهین‌آمیز و
-                                                    کلمات نامناسب باشند، حذف می‌شوند.</p>
-                                                <p>هرگونه نقد و نظر در خصوص سایت دیجی‌کالا، خدمات و درخواست کالا را
-                                                    با ایمیل
-                                                    <a href="mailto:info@kalamarket.com">
-                                                        info@kalamarket.com
-                                                    </a>
-                                                    یا با شماره‌ی
-
-                                                    <a href="tel: +982161930000">
-                                                        ۶۱۹۳۰۰۰۰ - ۰۲۱
-                                                    </a>
-                                                    در میان بگذارید و از نوشتن آن‌ها در بخش نظرات خودداری کنید.
-                                                </p>
+                                    <div class="comments-add-row">
+                                        <div class="col-lg-6 col-md-6 col-xs-12 pull-right">
+                                            <div class="comments-add-col-form">
+                                                <div class="form-comment">
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <div class="form-ui">
+                                                            <form class="px-5" action=""  method="post">
+                                                                {% csrf_token %}
+                                                                {{ form.as_p }}
+                                                                <div class="col-12 mt-5 px-0">
+                                                                    <button class="btn comment-submit-button">
+                                                                        ارسال پیام
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-12 pull-left">
+                                            <div class="comments-add-col-content">
+                                                <p>{{ setting.contact | safe }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </form>
             </div>
+            </section>
+            </form>
         </div>
+    </div>
     </div>
     <!-- product-comment----------------------->
 
