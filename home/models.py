@@ -67,33 +67,29 @@ class brandImages(models.Model):
 
 class ContactMessage(models.Model):
     STATUS = (
-        ('جدید', 'جدید'),
-        ('خوانده شده', 'خوانده شده'),
-        ('بستن', 'بستن'),
+        ('New', 'New'),
+        ('Read', 'Read'),
+        ('Closed', 'Closed'),
     )
-    name = models.CharField(blank=True, max_length=255, verbose_name='نام')
-    email = models.CharField(blank=True, max_length=255, verbose_name='ایمیل')
-    phone = models.CharField(blank=True, max_length=11, verbose_name='شماره تلفن')
-    subject = models.CharField(blank=True, max_length=255, verbose_name='موضوع')
-    message = models.TextField(blank=True, max_length=255, verbose_name='پیام')
-    status = models.CharField(max_length=10, choices=STATUS, default='جدید', verbose_name='وضعیت')
-    ip = models.CharField(blank=True, max_length=20, verbose_name='ای پی')
-    note = models.CharField(blank=True, max_length=255, verbose_name='یادداشت')
+    name = models.CharField(blank=True, max_length=20)
+    email = models.CharField(blank=True, max_length=50)
+    subject = models.CharField(blank=True, max_length=50)
+    message = models.TextField(blank=True, max_length=255)
+    status = models.CharField(max_length=10, choices=STATUS, default='New')
+    ip = models.CharField(blank=True, max_length=20)
+    note = models.CharField(blank=True, max_length=100)
     create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True, verbose_name='به روز شده در')
-
-    def __str__(self):
-        return self.name
+    update_at = models.DateTimeField(auto_now=True)
 
 
 class ContactForm(ModelForm):
     class Meta:
         model = ContactMessage
-        fields = ['name', 'email', 'subject', 'phone', 'message']
+        fields = ['name', 'email', 'subject', 'message']
         widgets = {
-            'name': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'نام شما'}),
-            'subject': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'موضوع'}),
-            'phone': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'شماره تلفن'}),
-            'email': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'ایمیل شما'}),
-            'message': Textarea(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'پیام خود را بنویسید', 'rows': '4'}),
+            'name': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'Name & Surname'}),
+            'subject': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'Subject'}),
+            'email': TextInput(attrs={'class': 'input-name-checkout form-control', 'placeholder': 'Email Address'}),
+            'message': Textarea(
+                attrs={'class': 'input-name-checkout form-control', 'placeholder': 'Your Message', 'rows': '5'}),
         }

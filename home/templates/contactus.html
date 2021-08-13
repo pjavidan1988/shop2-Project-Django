@@ -25,55 +25,116 @@
                         </nav>
                     </div>
                 </div>
-                <form action="#" id="addCommentForm">
-                    <section class="product-comment">
-                        <div class="comments-product">
-                            <div class="comments-product-row">
-                                <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
-                                    <div class="comments-product-col-info">
-                                        <div class="comments-product-headline">
-                                            <h3 class="comments-product-title"
-                                                style="margin-bottom: 35px; text-align: center;">
-                                                تماس با ما
-                                            </h3>
-                                        </div>
+                <section class="product-comment">
+                    <div class="comments-product">
+                        <div class="comments-product-row">
+                            <div class="col-lg-12 col-md-12 col-xs-12 pull-left">
+                                <div class="comments-product-col-info">
+                                    <div class="comments-product-headline">
+                                        <h3 class="comments-product-title"
+                                            style="margin-bottom: 35px; text-align: center;">
+                                            تماس با ما
+                                        </h3>
                                     </div>
                                 </div>
-                                <div class="comments-add">
-                                    <div class="comments-add-row">
-                                        <div class="col-lg-6 col-md-6 col-xs-12 pull-right">
-                                            <div class="comments-add-col-form">
-                                                <div class="form-comment">
-                                                    <div class="col-md-12 col-sm-12">
-                                                        <div class="form-ui">
-                                                            <form class="px-5" action=""  method="post">
-                                                                {% csrf_token %}
-                                                                {{ form.as_p }}
+                            </div>
+                            <div class="comments-add">
+                                <div class="comments-add-row">
+                                    <div class="col-lg-6 col-md-6 col-xs-12 pull-right">
+                                        <div class="comments-add-col-form">
+                                            <div class="form-comment">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="form-ui">
+                                                        <form class="px-5" onsubmit="return false">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <div class="form-row-title mb-2">موضوع
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <input class="input-ui pr-2" type="text"
+                                                                               placeholder="موضوع خود را بنویسید">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  mt-4">
+                                                                    <div class="form-row-title mb-2">
+                                                                        نام و نام خانوادگی
+                                                                    </div>
+                                                                    <div id="advantages" class="form-row">
+                                                                        <div class="ui-input--add-point">
+                                                                            <input class="input-ui pr-2 ui-input-field"
+                                                                                   type="text" id="advantage-input"
+                                                                                   autocomplete="on" value="">
+                                                                            <button class="ui-input-point js-icon-form-add"
+                                                                                    type="button"></button>
+                                                                        </div>
+                                                                        <div class="form-comment-dynamic-labels js-advantages-list">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                        class="col-12  mt-2">
+                                                                    <div class="form-row-title mb-2">
+                                                                        ایمیل
+                                                                    </div>
+                                                                    <div id="disadvantages" class="form-row">
+                                                                        <div class="ui-input--add-point">
+                                                                            <input
+                                                                                    class="input-ui pr-2 ui-input-field"
+                                                                                    type="text" id="disadvantage-input"
+                                                                                    autocomplete="off" value="">
+                                                                            <button
+                                                                                    class="ui-input-point js-icon-form-add"
+                                                                                    type="button"></button>
+                                                                        </div>
+                                                                        <div
+                                                                                class="form-comment-dynamic-labels js-disadvantages-list">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-3">
+                                                                    <div class="form-row-title mb-2">متن شما
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                        <textarea class="input-ui pr-2 pt-2" rows="5"
+                                                                                  placeholder="متن خود را بنویسید"
+                                                                                  style="height:120px;"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <br>
                                                                 <div class="col-12 mt-5 px-0">
                                                                     <button class="btn comment-submit-button">
                                                                         ارسال پیام
                                                                     </button>
                                                                 </div>
-                                                            </form>
-                                                        </div>
+                                                            </div>
+                                                        </form>
+                                                        {% if messages %}
+                                                            {% for message in messages %}
+                                                                <div class="alert alert-success"
+                                                                     style="text-align: center">
+                                                                    <strong>{{ message }}</strong>
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-xs-12 pull-left">
-                                            <div class="comments-add-col-content">
-                                                <p>{{ setting.contact | safe }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12 pull-left">
+                                <div class="comments-add-col-content">
+                                    <p>{{ setting.contact | safe }}</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </section>
             </div>
-            </section>
-            </form>
         </div>
-    </div>
     </div>
     <!-- product-comment----------------------->
 
