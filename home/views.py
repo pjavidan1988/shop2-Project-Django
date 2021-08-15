@@ -19,6 +19,7 @@ from django.utils import translation
 # Create your views here.
 from home.models import Setting, ContactForm, ContactMessage
 from product.models import Category, Product
+from django.core.mail import EmailMessage
 
 
 def index(request):
@@ -36,6 +37,19 @@ def aboutus(request):
 
 
 def contactus(request):
+    if request.method == 'POST':
+        subject = request.POST['subject']
+        name = request.POST['name']
+        email = request.POST['email']
+        msg = request.POST['msg']
+        body =  ' موضوع :' + '\n' + subject +  '\n' + '\n'+' نام :'  + '\n' + name + '\n' + '\n' + '\n'+ ' متن پیام :'  + '\n' + msg +  '\n' + '\n' + '\n' + 'From: ' + email
+        form = EmailMessage(
+            'پیام از طرف سایت',
+            body,
+            'message',
+            ('p.javidan1988@gmail.com',)
+        )
+        form.send(fail_silently=True)
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
     return render(request, 'contactus.html', context)

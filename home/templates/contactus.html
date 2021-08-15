@@ -45,13 +45,14 @@
                                             <div class="form-comment">
                                                 <div class="col-md-12 col-sm-12">
                                                     <div class="form-ui">
-                                                        <form class="px-5" onsubmit="return false">
+                                                        <form action="" method="post">
+                                                            {% csrf_token %}
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="form-row-title mb-2">موضوع
                                                                     </div>
                                                                     <div class="form-row">
-                                                                        <input class="input-ui pr-2" type="text"
+                                                                        <input class="input-ui pr-2" type="text" name="subject"
                                                                                placeholder="موضوع خود را بنویسید">
                                                                     </div>
                                                                 </div>
@@ -61,7 +62,7 @@
                                                                     </div>
                                                                     <div id="advantages" class="form-row">
                                                                         <div class="ui-input--add-point">
-                                                                            <input class="input-ui pr-2 ui-input-field"
+                                                                            <input class="input-ui pr-2 ui-input-field" name="name"
                                                                                    type="text" id="advantage-input"
                                                                                    autocomplete="on" value="">
                                                                             <button class="ui-input-point js-icon-form-add"
@@ -79,7 +80,7 @@
                                                                     <div id="disadvantages" class="form-row">
                                                                         <div class="ui-input--add-point">
                                                                             <input
-                                                                                    class="input-ui pr-2 ui-input-field"
+                                                                                    class="input-ui pr-2 ui-input-field" name="email"
                                                                                     type="text" id="disadvantage-input"
                                                                                     autocomplete="off" value="">
                                                                             <button
@@ -95,7 +96,7 @@
                                                                     <div class="form-row-title mb-2">متن شما
                                                                     </div>
                                                                     <div class="form-row">
-                                                                        <textarea class="input-ui pr-2 pt-2" rows="5"
+                                                                        <textarea class="input-ui pr-2 pt-2" rows="5" name="msg"
                                                                                   placeholder="متن خود را بنویسید"
                                                                                   style="height:120px;"></textarea>
                                                                     </div>
