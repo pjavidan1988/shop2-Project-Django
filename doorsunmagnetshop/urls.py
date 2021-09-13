@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+import accounts
 from home import views
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     path('contact/', views.contactus, name='contactus'),
     path('product/', include('product.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
 ]
 
