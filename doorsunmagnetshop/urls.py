@@ -22,11 +22,10 @@ import accounts
 from home import views
 
 urlpatterns = [
-    path('', include('home.urls')),
-    path('home/', include('home.urls')),
+    path('', include('home.urls', namespace='home')),
     path('about/', views.aboutus, name='aboutus'),
     path('contact/', views.contactus, name='contactus'),
-    path('product/', include('product.urls')),
+    path('product/', include('product.urls', namespace='product')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
