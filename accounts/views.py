@@ -20,4 +20,4 @@ def user_register(request):
     setting = Setting.objects.get(pk=1)
 
     context = {'setting': setting, 'form':form }
-    return render(request, 'register.html', context)
+    return render(request, 'accounts/register.html', context)

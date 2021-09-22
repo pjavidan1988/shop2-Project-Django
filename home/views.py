@@ -25,14 +25,13 @@ from django.core.mail import EmailMessage
 def index(request):
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting, }
-    return render(request, 'index.html', context)
+    return render(request, 'home/index.html', context)
 
 
 def aboutus(request):
     setting = Setting.objects.get(pk=1)
-
     context = {'setting': setting}
-    return render(request, 'about.html', context)
+    return render(request, 'home/about.html', context)
 
 
 def contactus(request):
@@ -51,4 +50,4 @@ def contactus(request):
         form.send(fail_silently=True)
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
-    return render(request, 'contactus.html', context)
+    return render(request, 'home/contactus.html', context)
