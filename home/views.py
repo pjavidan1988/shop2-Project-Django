@@ -31,7 +31,7 @@ def index(request):
 def aboutus(request):
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
-    return render(request, 'home/templates/about.html', context)
+    return render(request, 'about.html', context)
 
 
 def contactus(request):
@@ -50,4 +50,4 @@ def contactus(request):
         form.send(fail_silently=True)
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
-    return render(request, 'home/templates/contactus.html', context)
+    return render(request, 'contactus.html', context)
