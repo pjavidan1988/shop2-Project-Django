@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from home.models import Setting
@@ -14,10 +14,11 @@ def user_register(request):
             User.objects.create_user(username=data['user_name'], email=data['email'],
                                      first_name=data['first_name'], last_name=data['last_name'],
                                      password=data['password_1'])
-
+            return redirect('home:index')
     else:
         form = userRegisterForm()
+
     setting = Setting.objects.get(pk=1)
 
-    context = {'setting': setting, 'form':form }
-    return render(request, 'accounts/register.html', context)
+    context = {'setting': setting, 'form': form}
+    return render(request, 'register.html', context)
