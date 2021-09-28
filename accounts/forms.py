@@ -32,3 +32,8 @@ class userRegisterForm(forms.Form):
         elif not any(x.isupper() for x in password1):
             raise forms.ValidationError('باید پسورد شما حداقل یک حرف بزرگ داشته باشد')
         return password1
+
+
+class userRegisterForm(forms.Form):
+    user = forms.CharField()
+    password = forms.CharField()

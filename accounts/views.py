@@ -22,3 +22,12 @@ def user_register(request):
 
     context = {'setting': setting, 'form': form}
     return render(request, 'register.html', context)
+
+
+def user_login(request):
+
+
+
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting}
+    return render(request, 'login.html', context)
