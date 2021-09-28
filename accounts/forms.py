@@ -34,6 +34,6 @@ class userRegisterForm(forms.Form):
         return password1
 
 
-class userRegisterForm(forms.Form):
+class userLoginForm(forms.Form):
     user = forms.CharField()
     password = forms.CharField()
