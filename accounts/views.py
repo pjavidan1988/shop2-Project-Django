@@ -5,6 +5,7 @@ from home.models import Setting
 from .forms import userRegisterForm, userLoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 
 def user_register(request):
@@ -15,7 +16,8 @@ def user_register(request):
             User.objects.create_user(username=data['user_name'], email=data['email'],
                                      first_name=data['first_name'], last_name=data['last_name'],
                                      password=data['password_1'])
-            return redirect('home:index')
+            messages.success(request, 'ثبت نام با موفقیت انجام شد لطفا وارد شوید', 'success')
+            return redirect('accounts:login')
     else:
         form = userRegisterForm()
 
@@ -36,9 +38,10 @@ def user_login(request):
                 user = authenticate(request, username=data['user'], password=data['password'])
             if user is not None:
                 login(request, user)
+                messages.success(request,'کاربر عزیز خوش آمدید','success' )
                 return redirect('home:index')
             else:
-                pass
+                messages.warning(request,'کاربر عزیز نام کاربری یا پسورد اشتباه است','danger' )
 
     else:
         form = userLoginForm()
@@ -51,4 +54,5 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
+    messages.success(request, 'با موفقیت خارج شدید','success')
     return redirect('home:index')

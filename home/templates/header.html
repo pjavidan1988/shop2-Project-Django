@@ -135,23 +135,32 @@
                                             <span class="icon-account">
                                                 <img src="{% static '' %}images/man.png" class="avator">
                                             </span>
-                                        <span class="title-account">حساب کاربری</span>
-                                        <div class="dropdown-menu">
-                                            <ul class="account-uls mb-0">
-                                                <li class="account-item">
-                                                    <a href="#" class="account-link">پنل کاربری</a>
-                                                </li>
-                                                <li class="account-item">
-                                                    <a href="#" class="account-link">سفارشات من</a>
-                                                </li>
-                                                <li class="account-item">
-                                                    <a href="#" class="account-link">تنظیمات</a>
-                                                </li>
-                                                <li class="account-item">
-                                                    <a href="#" class="account-link">خروج</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        {% if user.is_authenticated %}
+                                            <span class="title-account">{{ user.first_name }}</span>
+                                            <div class="dropdown-menu">
+                                                <ul class="account-uls mb-0">
+                                                    <li class="account-item">
+                                                        <a href="{% url 'accounts:logout' %}"
+                                                           class="account-link">خروج</a>
+                                                    </li>
+                                                </ul>
+                                                </ul>
+                                            </div>
+                                        {% else %}
+                                            <span class="title-account">حساب کاربری</span>
+                                            <div class="dropdown-menu">
+                                                <ul class="account-uls mb-0">
+                                                    <li class="account-item">
+                                                        <a href="{% url 'accounts:login' %}"
+                                                           class="account-link">ورود</a>
+                                                    </li>
+                                                    <li class="account-item">
+                                                        <a href="{% url 'accounts:user_register' %}"
+                                                           class="account-link">ثبت نام</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
