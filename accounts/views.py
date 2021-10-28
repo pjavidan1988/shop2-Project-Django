@@ -67,3 +67,11 @@ def user_profile(request):
 
     context = {'setting': setting, 'profile':profile}
     return render(request, 'profile.html', context)
+
+
+def user_update(request):
+
+
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting}
+    return render(request, 'update.html', context)
