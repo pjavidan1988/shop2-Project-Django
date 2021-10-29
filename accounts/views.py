@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from home.models import Setting
 from .models import Profile
-from .forms import userRegisterForm, userLoginForm
+from .forms import userRegisterForm, userLoginForm, userUpdateForm, profileUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -70,8 +70,18 @@ def user_profile(request):
 
 
 def user_update(request):
-
+    if request.method == 'POST':
+        user_form = userUpdateForm(request.POST)
+        profile_form = profileUpdateForm(request.POST)
+        if user_form and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request,'تغییرات با موفقیت انجام شد', 'success')
+            return redirect('accounts:profile')
+    else:
+        user_form = userUpdateForm()
+        profile_form = profileUpdateForm()
 
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    context = {'setting': setting, 'user_form':user_form, 'profile_form':profile_form}
     return render(request, 'update.html', context)

@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from accounts.models import Profile
+
 
 class userRegisterForm(forms.Form):
     user_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder':'لطفا نام کاربری خود را وارد کنید'}))
@@ -37,3 +39,16 @@ class userRegisterForm(forms.Form):
 class userLoginForm(forms.Form):
     user = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'لطفا نام کاربری یا ایمیل خود را وارد کنید'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'لطفا پسورد خود را وارد کنید'}))
+
+
+class userUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email','first_name','lastname']
+
+class profileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['phone','address']
+
+
