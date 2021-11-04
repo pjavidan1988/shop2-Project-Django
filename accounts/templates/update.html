@@ -60,7 +60,8 @@
                                             </a>
                                         </li>
                                         <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="{% url 'accounts:update' %}" class="active"><i class="mdi mdi-tooltip-text-outline"></i>
+                                            <a href="{% url 'accounts:update' %}" class="active"><i
+                                                    class="mdi mdi-tooltip-text-outline"></i>
                                                 اطلاعات حساب
                                             </a>
                                         </li>
@@ -73,7 +74,7 @@
                                 <div class="profile-stats">
                                     <div class="profile-address">
                                         <div class="middle-container">
-                                            <form action="#" class="form-checkout">
+                                            <form action="#" class="form-checkout" method="post">
                                                 {% csrf_token %}
                                                 <div class="form-checkout-row">
                                                     <label for="namefirst">نام <abbr class="required" title="ضروری"
@@ -87,7 +88,27 @@
                                                     <input type="text" id="namelast"
                                                            class="input-namelast-checkout form-control">
 
+                                                    <label for="email">نام کاربری <abbr class="required" title="ضروری"
+                                                                                        style="color:red;">*</abbr></label>
+                                                    <input type="text" id="email"
+                                                           class="input-email-checkout form-control">
+
+                                                    <label for="email">تلفن <abbr class="required" title="ضروری"
+                                                                                  style="color:red;">*</abbr></label>
+                                                    <input type="text" id="email"
+                                                           class="input-email-checkout form-control">
+
                                                     <label for="email">ایمیل <abbr class="required" title="ضروری"
+                                                                                   style="color:red;">*</abbr></label>
+                                                    <input type="text" id="email"
+                                                           class="input-email-checkout form-control">
+
+                                                    <label for="email">آدرس<abbr class="required" title="ضروری"
+                                                                                 style="color:red;">*</abbr></label>
+                                                    <input type="text" id="email"
+                                                           class="input-email-checkout form-control">
+
+                                                    <label for="email">شهر <abbr class="required" title="ضروری"
                                                                                    style="color:red;">*</abbr></label>
                                                     <input type="text" id="email"
                                                            class="input-email-checkout form-control">
@@ -112,7 +133,7 @@
 
                                                     <div class="AR-CR">
                                                         <button class="btn-registrar"> ثبت تغییرات</button>
-                                                        <a href="#" class="cancel-edit-address" data-dismiss="modal"
+                                                        <a href="{% url 'accounts:profile' %}" class="cancel-edit-address" data-dismiss="modal"
                                                            aria-label="Close">بازگشت</a>
                                                     </div>
                                                 </div>

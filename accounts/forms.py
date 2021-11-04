@@ -44,11 +44,11 @@ class userLoginForm(forms.Form):
 class userUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['email','first_name','lastname']
+        fields = ['email','first_name','last_name']
 
 class profileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['phone','address']
+        fields = ['phone','address','postal_code','city']
 
 
