@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
 
     'ckeditor',
+    'phone_field',
 
     # my apps
     'product.apps.ProductConfig',

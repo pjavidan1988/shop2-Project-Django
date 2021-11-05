@@ -76,64 +76,74 @@
                                         <div class="middle-container">
                                             <form action="#" class="form-checkout" method="post">
                                                 {% csrf_token %}
-                                                <div class="form-checkout-row">
-                                                    <label for="namefirst">نام <abbr class="required" title="ضروری"
-                                                                                     style="color:red;">*</abbr></label>
-                                                    <input type="text" id="namefirst"
-                                                           class="input-namefirst-checkout form-control">
-
-                                                    <label for="namelast">نام خانوادگی <abbr class="required"
-                                                                                             title="ضروری"
-                                                                                             style="color:red;">*</abbr></label>
-                                                    <input type="text" id="namelast"
-                                                           class="input-namelast-checkout form-control">
-
-                                                    <label for="email">نام کاربری <abbr class="required" title="ضروری"
-                                                                                        style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                           class="input-email-checkout form-control">
-
-                                                    <label for="email">تلفن <abbr class="required" title="ضروری"
-                                                                                  style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                           class="input-email-checkout form-control">
-
-                                                    <label for="email">ایمیل <abbr class="required" title="ضروری"
-                                                                                   style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                           class="input-email-checkout form-control">
-
-                                                    <label for="email">آدرس<abbr class="required" title="ضروری"
-                                                                                 style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                           class="input-email-checkout form-control">
-
-                                                    <label for="email">شهر <abbr class="required" title="ضروری"
-                                                                                   style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                           class="input-email-checkout form-control">
-
-                                                    <label for="password">رمز عبور قبلی <abbr class="required"
-                                                                                              title="ضروری"
-                                                                                              style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                           class="input-password-checkout form-control">
-
-                                                    <label for="password">رمز عبور جدید <abbr class="required"
-                                                                                              title="ضروری"
-                                                                                              style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                           class="input-password-checkout form-control">
-
-                                                    <label for="password">تکرار رمز عبور جدید <abbr class="required"
-                                                                                                    title="ضروری"
-                                                                                                    style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                           class="input-password-checkout form-control">
-
+                                                {{ user_form.as_p }}
+                                                {{ profile_form.as_p }}
+{#                                                <div class="form-checkout-row">#}
+{#                                                    <label for="namefirst">نام <abbr class="required" title="ضروری"#}
+{#                                                                                     style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="namefirst"#}
+{#                                                           class="input-namefirst-checkout form-control"#}
+{#                                                           name="first_name">#}
+{##}
+{#                                                    <label for="namelast">نام خانوادگی <abbr class="required"#}
+{#                                                                                             title="ضروری"#}
+{#                                                                                             style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="namelast"#}
+{#                                                           class="input-namelast-checkout form-control"#}
+{#                                                           name="last_name">#}
+{##}
+{#                                                    <label for="email">نام کاربری <abbr class="required" title="ضروری"#}
+{#                                                                                        style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="user_name">#}
+{##}
+{#                                                    <label for="email">تلفن <abbr class="required" title="ضروری"#}
+{#                                                                                  style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="phone">#}
+{##}
+{#                                                    <label for="email">ایمیل <abbr class="required" title="ضروری"#}
+{#                                                                                   style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="email">#}
+{##}
+{#                                                    <label for="email">آدرس<abbr class="required" title="ضروری"#}
+{#                                                                                 style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="address">#}
+{##}
+{#                                                    <label for="email">شهر <abbr class="required" title="ضروری"#}
+{#                                                                                 style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="city">#}
+{##}
+{#                                                    <label for="email">کد پستی <abbr class="required" title="ضروری"#}
+{#                                                                                 style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="email"#}
+{#                                                           class="input-email-checkout form-control" name="postal_code">#}
+{##}
+{#                                                    <label for="password">رمز عبور قبلی <abbr class="required"#}
+{#                                                                                              title="ضروری"#}
+{#                                                                                              style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="password"#}
+{#                                                           class="input-password-checkout form-control">#}
+{##}
+{#                                                    <label for="password">رمز عبور جدید <abbr class="required"#}
+{#                                                                                              title="ضروری"#}
+{#                                                                                              style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="password"#}
+{#                                                           class="input-password-checkout form-control">#}
+{##}
+{#                                                    <label for="password">تکرار رمز عبور جدید <abbr class="required"#}
+{#                                                                                                    title="ضروری"#}
+{#                                                                                                    style="color:red;">*</abbr></label>#}
+{#                                                    <input type="text" id="password"#}
+{#                                                           class="input-password-checkout form-control">#}
+{##}
                                                     <div class="AR-CR">
-                                                        <button class="btn-registrar"> ثبت تغییرات</button>
-                                                        <a href="{% url 'accounts:profile' %}" class="cancel-edit-address" data-dismiss="modal"
+                                                        <button class="btn-registrar" type="submit"> ثبت تغییرات</button>
+                                                        <a href="{% url 'accounts:profile' %}"
+                                                           class="cancel-edit-address" data-dismiss="modal"
                                                            aria-label="Close">بازگشت</a>
                                                     </div>
                                                 </div>

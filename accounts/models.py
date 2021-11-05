@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from phone_field import PhoneField
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(blank=True, null=True, max_length=11)
+    phone = PhoneField(blank=True, null=True, max_length=11)
     address = models.CharField(blank=True, null=True, max_length=300)
     postal_code = models.CharField(blank=True, null=True, max_length=10)
     city = models.CharField(blank=True, null=True, max_length=30)

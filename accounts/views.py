@@ -71,16 +71,16 @@ def user_profile(request):
 
 def user_update(request):
     if request.method == 'POST':
-        user_form = userUpdateForm(request.POST)
-        profile_form = profileUpdateForm(request.POST)
+        user_form = userUpdateForm(request.POST, instance=request.user)
+        profile_form = profileUpdateForm(request.POST, instance=request.user.profile)
         if user_form and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request,'تغییرات با موفقیت انجام شد', 'success')
             return redirect('accounts:profile')
     else:
-        user_form = userUpdateForm()
-        profile_form = profileUpdateForm()
+        user_form = userUpdateForm(instance=request.user)
+        profile_form = profileUpdateForm(instance=request.user.profile)
 
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting, 'user_form':user_form, 'profile_form':profile_form}
