@@ -34,7 +34,8 @@
                                 <section class="profile-box">
                                     <ul class="profile-account-navs">
                                         <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="{% url 'accounts:profile' %}" class="active"><i class="mdi mdi-account-outline"></i>
+                                            <a href="{% url 'accounts:profile' %}" class="active"><i
+                                                    class="mdi mdi-account-outline"></i>
                                                 پروفایل
                                             </a>
                                         </li>
@@ -59,7 +60,8 @@
                                             </a>
                                         </li>
                                         <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="{% url 'accounts:update' %}" class=""><i class="mdi mdi-tooltip-text-outline"></i>
+                                            <a href="{% url 'accounts:update' %}" class=""><i
+                                                    class="mdi mdi-tooltip-text-outline"></i>
                                                 اطلاعات حساب
                                             </a>
                                         </li>
@@ -108,7 +110,7 @@
                                         <ul class="mb-0">
                                             <li class="profile-item">
                                                 <div class="title">نام و نام خانوادگی:</div>
-                                                <div class="value">{{ profile.user.first_name }}  {{ profile.user.last_name }}</div>
+                                                <div class="value">{{ profile.user.first_name }} {{ profile.user.last_name }}</div>
                                             </li>
                                             <li class="profile-item">
                                                 <div class="title">پست الکترونیک :</div>
@@ -133,7 +135,10 @@
                                         </ul>
                                     </div>
                                     <div class="profile-edit-action">
-                                        <a href="{% url 'accounts:update' %}" class="link-spoiler-edit btn btn-secondary">ویرایش اطلاعات</a>
+                                        <a href="{% url 'accounts:update' %}"
+                                           class="link-spoiler-edit btn btn-secondary">ویرایش اطلاعات</a>
+                                        <a href="{% url 'accounts:change' %}"
+                                           class="link-spoiler-edit btn btn-secondary">تغییر پسورد</a>
                                     </div>
                                 </div>
                             </div>

@@ -7,6 +7,7 @@ from .forms import userRegisterForm, userLoginForm, userUpdateForm, profileUpdat
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 def user_register(request):
@@ -85,3 +86,15 @@ def user_update(request):
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting, 'user_form':user_form, 'profile_form':profile_form}
     return render(request, 'update.html', context)
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = PasswordChangeForm(request.user)
+        setting = Setting.objects.get(pk=1)
+        context = {'setting': setting,'form':form}
+    return render(request, 'change.html', context)
