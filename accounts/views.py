@@ -97,4 +97,4 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
         setting = Setting.objects.get(pk=1)
         context = {'setting': setting,'form':form}
-    return render(request, 'change.html', context)
+    return render(request, 'change_password.html', context)
