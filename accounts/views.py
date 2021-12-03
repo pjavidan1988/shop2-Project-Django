@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 
 def user_register(request):
@@ -93,6 +94,12 @@ def change_password(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'پسورد با موفقیت تغییر یافت', 'success')
+            return redirect('accounts:profile')
+        else:
+            messages.warning(request,'کاربر عزیز پسورد وارد شده اشتباه است','danger' )
+            return redirect('accounts:change_password')
     else:
         form = PasswordChangeForm(request.user)
         setting = Setting.objects.get(pk=1)
