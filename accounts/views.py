@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 
 
 def user_register(request):
@@ -61,7 +62,7 @@ def user_logout(request):
     messages.success(request, 'با موفقیت خارج شدید','success')
     return redirect('home:index')
 
-
+@login_required(login_url='accounts:login')
 def user_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
 
@@ -70,7 +71,7 @@ def user_profile(request):
     context = {'setting': setting, 'profile':profile}
     return render(request, 'profile.html', context)
 
-
+@login_required(login_url='accounts:login')
 def user_update(request):
     if request.method == 'POST':
         user_form = userUpdateForm(request.POST, instance=request.user)
