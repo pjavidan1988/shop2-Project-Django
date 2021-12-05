@@ -76,72 +76,12 @@
                                         <div class="middle-container">
                                             <form action="#" class="form-checkout" method="post">
                                                 {% csrf_token %}
-                                                {{ user_form.as_p }}
-                                                {{ profile_form.as_p }}
-{#                                                <div class="form-checkout-row">#}
-{#                                                    <label for="namefirst">نام <abbr class="required" title="ضروری"#}
-{#                                                                                     style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="namefirst"#}
-{#                                                           class="input-namefirst-checkout form-control"#}
-{#                                                           name="first_name">#}
-{##}
-{#                                                    <label for="namelast">نام خانوادگی <abbr class="required"#}
-{#                                                                                             title="ضروری"#}
-{#                                                                                             style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="namelast"#}
-{#                                                           class="input-namelast-checkout form-control"#}
-{#                                                           name="last_name">#}
-{##}
-{#                                                    <label for="email">نام کاربری <abbr class="required" title="ضروری"#}
-{#                                                                                        style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="user_name">#}
-{##}
-{#                                                    <label for="email">تلفن <abbr class="required" title="ضروری"#}
-{#                                                                                  style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="phone">#}
-{##}
-{#                                                    <label for="email">ایمیل <abbr class="required" title="ضروری"#}
-{#                                                                                   style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="email">#}
-{##}
-{#                                                    <label for="email">آدرس<abbr class="required" title="ضروری"#}
-{#                                                                                 style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="address">#}
-{##}
-{#                                                    <label for="email">شهر <abbr class="required" title="ضروری"#}
-{#                                                                                 style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="city">#}
-{##}
-{#                                                    <label for="email">کد پستی <abbr class="required" title="ضروری"#}
-{#                                                                                 style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="email"#}
-{#                                                           class="input-email-checkout form-control" name="postal_code">#}
-{##}
-{#                                                    <label for="password">رمز عبور قبلی <abbr class="required"#}
-{#                                                                                              title="ضروری"#}
-{#                                                                                              style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="password"#}
-{#                                                           class="input-password-checkout form-control">#}
-{##}
-{#                                                    <label for="password">رمز عبور جدید <abbr class="required"#}
-{#                                                                                              title="ضروری"#}
-{#                                                                                              style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="password"#}
-{#                                                           class="input-password-checkout form-control">#}
-{##}
-{#                                                    <label for="password">تکرار رمز عبور جدید <abbr class="required"#}
-{#                                                                                                    title="ضروری"#}
-{#                                                                                                    style="color:red;">*</abbr></label>#}
-{#                                                    <input type="text" id="password"#}
-{#                                                           class="input-password-checkout form-control">#}
-{##}
+                                                <div class="form-checkout-row">
+                                                    {{ user_form.as_p }}
+                                                    {{ profile_form.as_p }}
                                                     <div class="AR-CR">
-                                                        <button class="btn-registrar" type="submit"> ثبت تغییرات</button>
+                                                        <button class="btn-registrar" type="submit"> ثبت تغییرات
+                                                        </button>
                                                         <a href="{% url 'accounts:profile' %}"
                                                            class="cancel-edit-address" data-dismiss="modal"
                                                            aria-label="Close">بازگشت</a>
@@ -159,25 +99,8 @@
         </div>
     </div>
     <!-- profile------------------------------->
-    <!-- scroll_Progress------------------------->
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-        </svg>
-    </div>
-    <!-- scroll_Progress------------------------->
-    <!-- Page Loader----------------------------->
-    <div class="P-loader">
-        <div class="P-loader-content">
-            <div class="logo-loader">
-                <img src="{% static '' %}images/logo.png" alt="logo">
-            </div>
-            <div class="pic-loader text-center">
-                <img src="assets/images/three-dots.svg" width="50" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- Page Loader----------------------------->
+
+
 
 
 {% endblock %}

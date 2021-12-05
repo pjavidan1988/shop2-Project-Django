@@ -101,18 +101,25 @@
     </section>
 </footer>
 <!-- footer---------------------------------->
-<!-- Page Loader----------------------------->
-<div class="P-loader">
-    <div class="P-loader-content">
-        <div class="logo-loader">
-            <img src="assets/images/logo.png" alt="logo">
-        </div>
-        <div class="pic-loader text-center">
-            <img src="assets/images/three-dots.svg" width="50" alt="">
-        </div>
-    </div>
+<!-- scroll_Progress------------------------->
+<div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+    </svg>
 </div>
-<!-- Page Loader----------------------------->
+<!-- scroll_Progress------------------------->
+{#<!-- Page Loader----------------------------->#}
+{#<div class="P-loader">#}
+{#    <div class="P-loader-content">#}
+{#        <div class="logo-loader">#}
+{#            <img src="{% static '' %}images/logo.png" alt="logo">#}
+{#        </div>#}
+{#        <div class="pic-loader text-center">#}
+{#            <img src="{% static '' %}images/three-dots.svg" width="50" alt="">#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<!-- Page Loader----------------------------->#}
 
 <!-- file js---------------------------------------------------->
 <script src="{% static '' %}js/vendor/jquery-3.2.1.min.js"></script>

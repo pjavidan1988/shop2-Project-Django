@@ -89,7 +89,7 @@ def user_update(request):
     context = {'setting': setting, 'user_form':user_form, 'profile_form':profile_form}
     return render(request, 'update.html', context)
 
-
+@login_required(login_url='accounts:login')
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)

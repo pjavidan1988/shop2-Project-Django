@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.forms import TextInput, EmailInput
+from phone_field import PhoneField
 
 from accounts.models import Profile
 
@@ -44,11 +46,26 @@ class userLoginForm(forms.Form):
 class userUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['email','first_name','last_name']
+        fields = ('username', 'email', 'first_name', 'last_name')
+        help_texts = {
+            'username': None,
+        }
+        widgets = {
+            'username': TextInput(attrs={'class': 'input', 'placeholder':'نام کاربری'}),
+            'email': EmailInput(attrs={'class': 'input', 'placeholder': 'ایمیل'}),
+            'first_name': TextInput(attrs={'class': 'input', 'placeholder': 'نام'}),
+            'last_name': TextInput(attrs={'class': 'input', 'placeholder': 'نام خانوادگی'}),
+        }
+        error_messages = {'invalid': 'your custom error message'}
 
 class profileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['phone','address','postal_code','city']
+        fields = ('phone', 'address','postal_code', 'city')
+
+        widgets = {'city': TextInput(attrs={'class': 'input', 'placeholder': 'شهر'}),
+                   'address': TextInput(attrs={'class': 'input', 'placeholder': 'آدرس'}),
+                   'postal_code': TextInput(attrs={'class': 'input', 'placeholder': 'کد پستی'})}
+        error_messages = {'invalid': 'your custom error message'}
 
 
