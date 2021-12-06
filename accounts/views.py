@@ -106,3 +106,9 @@ def change_password(request):
         setting = Setting.objects.get(pk=1)
         context = {'setting': setting,'form':form}
     return render(request, 'change_password.html', context)
+
+
+def phone(request):
+    setting = Setting.objects.get(pk=1)
+    context = {'setting': setting}
+    return render(request, 'phone.html', context)
