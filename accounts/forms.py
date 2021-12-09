@@ -69,3 +69,5 @@ class profileUpdateForm(forms.ModelForm):
         error_messages = {'invalid': 'your custom error message'}
 
 
+class phoneForm(forms.Form):
+    phone = forms.IntegerField()
