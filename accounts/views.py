@@ -1,15 +1,17 @@
+import ghasedak
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from home.models import Setting
 from .models import Profile
-from .forms import userRegisterForm, userLoginForm, userUpdateForm, profileUpdateForm
+from .forms import userRegisterForm, userLoginForm, userUpdateForm, profileUpdateForm, phoneForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from random import randint
 
 
 def user_register(request):
@@ -109,6 +111,17 @@ def change_password(request):
 
 
 def phone(request):
+    if request.method == 'POST':
+        form = phoneForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            phone = data['phone']
+            random_code = randint(100,1000)
+            sms = ghasedak.Ghasedak("")
+            sms.send({'message': random_code, 'receptor': phone, 'linenumber': "10008566"})
+            return redirect()
+    else:
+        form = phoneForm()
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    context = {'setting': setting, 'form':form}
     return render(request, 'phone.html', context)
